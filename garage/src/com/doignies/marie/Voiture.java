@@ -22,7 +22,7 @@ public class Voiture {
         this.prix = newPrix;
         this.etat = "neuf";
         this.nbKm = 0;
-        this.
+       this.loueur=null;
     }
 
     public Voiture () {
@@ -40,12 +40,19 @@ public class Voiture {
     // * fonctions
 
     public void afficheToi() {
-        System.out.println ("\t" + "- model : " + this.model + " / marque : " + this.marque + " / loueur : " + this.loueur);
+        System.out.println ("\t" + "- model : " + this.model + " / marque : " + this.marque);
+        if (this.loueur != null) {
+            System.out.println("\t" + "- loué par: " + this.loueur.getName());
+        }
+        else {
+            System.out.println ("\t" + "- n'est pas louée " );
+            }
+
     }
 
-    public void locationVoiture (String nomDuLoueur) {
+    public void locationVoiture (Client clientLoueur) {
         if(this.estLoue()==false){
-            this.loueur=nomDuLoueur;
+            this.loueur=clientLoueur;
             this.etat="utilisé";
         }
         else{
@@ -57,7 +64,7 @@ public class Voiture {
     public void retourVoiture (int combienJaiRoule) {
         if(this.estLoue()==true && combienJaiRoule >= 0) {
             this.nbKm=nbKm+combienJaiRoule;
-            this.loueur="";
+            this.loueur=null;
         }
         else {
             System.out.println("erreur, voiture n'est pas louée OU tu es un couillon");
@@ -73,7 +80,7 @@ public class Voiture {
     }
 
     private boolean estLoue (){
-        if (this.loueur != ""){
+        if (this.loueur != null){
             return true;
         }
         else{

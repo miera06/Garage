@@ -36,21 +36,17 @@ public class Main {
         xavier.addVoiture(maVoiture2);
         xavier.addVoiture(maVoiture3);
 
-        marie.afficheToi();
+        // System.out.println(marie.compteNbVoitureDeLaCouleur("bleue"));
 
-        xavier.afficheToi();
-        System.out.println ("Nb de voitures : " + marie.compteNbVoiture());
-
-        System.out.println (1);
-        System.out.println(marie.compteNbVoitureDeLaCouleur("bleue"));
-        System.out.println(marie.compteNbVoitureDeLaCouleur("rouge"));
-
-        System.out.println ();
-
-        maVoiture2.locationVoiture(monClient2.getName());
         maVoiture2.retourVoiture(20);
+        maVoiture2.locationVoiture(monClient2);
+        maVoiture2.afficheToi();
 
 
-        xavier.renvoiLaVoitureQuiALePlusDeKm().afficheToi();
+
+
+        maVoiture2.retourVoiture(20);
+        maVoiture2.afficheToi();
+       // xavier.renvoiLaVoitureQuiALePlusDeKm().afficheToi();
     }
 }
