@@ -6,7 +6,7 @@ public class Voiture {
     private String marque;
     private String model;
     private String color;
-    private int prix;
+    private int tarifParJour;
     private String etat;
     private int nbKm;
     private Client loueur;
@@ -15,11 +15,11 @@ public class Voiture {
     public Voiture (String newMarque,
                     String newModel,
                     String newColor,
-                    int newPrix) {
+                    int newtarifParJour) {
         this.marque = newMarque;
         this.model= newModel;
         this.color = newColor;
-        this.prix = newPrix;
+        this.tarifParJour = newtarifParJour;
         this.etat = "neuf";
         this.nbKm = 0;
        this.loueur=null;
@@ -28,9 +28,7 @@ public class Voiture {
     public Voiture () {
     }
 
-    //public void Client (String newName,
-    //             String newSurname,
-    //           int newAge) {}
+
 
     //* getters et setters
 
@@ -54,6 +52,7 @@ public class Voiture {
         if(this.estLoue()==false){
             this.loueur=clientLoueur;
             this.etat="utilisé";
+            clientLoueur.setaDejaEmprunte(true);
         }
         else{
             System.out.println("erreur, voiture déjà louée");
@@ -61,10 +60,12 @@ public class Voiture {
 
     }
 
-    public void retourVoiture (int combienJaiRoule) {
-        if(this.estLoue()==true && combienJaiRoule >= 0) {
+    public void retourVoiture (int combienJaiRoule, int nbJourLoc) {
+        if(this.estLoue()==true && combienJaiRoule >= 0 && nbJourLoc >=0) {
             this.nbKm=nbKm+combienJaiRoule;
             this.loueur=null;
+            System.out.println ("le prix :" + this.tarifParJour*nbJourLoc);
+
         }
         else {
             System.out.println("erreur, voiture n'est pas louée OU tu es un couillon");

@@ -19,9 +19,6 @@ public class Garage {
 
     //*getters et  setters
 
-    //public String getGarageName() { return garageName; }
-    //public List<Voiture> getVoitures() { return voitures; }
-
 
     //*fonctions
     public void afficheToi() {
@@ -60,9 +57,7 @@ public class Garage {
     public void addClient(Client unClient) {
         this.clients.add(unClient);
     }
-    //public List<Voiture> compteNbVoiture(){
-    // return this.voitures;
-    //}
+
 
     public int compteNbVoiture() {
         return this.voitures.size();

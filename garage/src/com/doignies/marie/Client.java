@@ -5,7 +5,7 @@ public class Client {
     private String name;
     private String surname;
     private int age;
-    private boolean aDejaEmrpunté;
+    private boolean aDejaEmprunte;
 
     //*constructeurs
     public Client (String newName,
@@ -14,11 +14,16 @@ public class Client {
         this.name = newName;
         this.surname= newSurname;
         this.age = newAge;
-        this.aDejaEmrpunté = false;
+        this.aDejaEmprunte = false;
     }
 
 
     //*getters/setters
+
+
+    public void setaDejaEmprunte(boolean aDejaEmprunte) {
+        this.aDejaEmprunte = aDejaEmprunte;
+    }
 
     public String getName() {
         return name;

@@ -15,9 +15,9 @@ public class Main {
         Garage marie = new Garage("Marie");
         Garage xavier = new Garage ("Xavier");
 
-        Voiture maVoiture1 = new Voiture ("Dacia", "Duster", "blanche", 20000);
-        Voiture maVoiture2 = new Voiture ("Renault", "Clio", "bleue", 15000);
-        Voiture maVoiture3 = new Voiture ("Peugeot", "208", "rouge", 18000);
+        Voiture maVoiture1 = new Voiture ("Dacia", "Duster", "blanche", 100);
+        Voiture maVoiture2 = new Voiture ("Renault", "Clio", "bleue", 150);
+        Voiture maVoiture3 = new Voiture ("Peugeot", "208", "rouge", 200);
 
         Client monClient1 = new Client ("Toutou","Bob",55);
         Client monClient2 = new Client ("Dada","Ollie",35);
@@ -38,14 +38,14 @@ public class Main {
 
         // System.out.println(marie.compteNbVoitureDeLaCouleur("bleue"));
 
-        maVoiture2.retourVoiture(20);
+
         maVoiture2.locationVoiture(monClient2);
         maVoiture2.afficheToi();
 
 
 
 
-        maVoiture2.retourVoiture(20);
+        maVoiture2.retourVoiture(20,3);
         maVoiture2.afficheToi();
        // xavier.renvoiLaVoitureQuiALePlusDeKm().afficheToi();
     }
