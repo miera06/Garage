@@ -62,11 +62,11 @@ public class Client {
 	// *** Fonctions ***
 	// /////////////////
 	public void afficheToi() {
-		System.out.println ("\t" + "- name : " + this.name + " / surname :" + this.surname);
+		System.out.println ("\tClient : " + this.name + " " + this.surname);
 
-		if(factures.size() > 0) { // Protection pour ne pas afficher si il n'y a pas de factures
-
-			System.out.println("\t La liste des factures : ");
+		// if(factures.size() > 0) { // Protection pour ne pas afficher si il n'y a pas de factures
+		if (!factures.isEmpty()) {
+			System.out.println("\tFactures : ");
 			for (Facture maFacture : factures) {
 				maFacture.afficheToi();
 			}
