@@ -46,12 +46,12 @@ public class Garage {
 	public void afficheToi() {
 		System.out.println("Garage : " + this.garageName);
 
-		System.out.println("Liste de voitures : ");
+		System.out.println("Voitures : ");
 		for (Voiture maVoiture : voitures) {
 			maVoiture.afficheToi();
 		}
 
-		System.out.println("Liste de clients : ");
+		System.out.println("Clients : ");
 		for (Client monClient : clients) {
 			monClient.afficheToi();
 		}
@@ -131,8 +131,9 @@ public class Garage {
 
 	public void afficheFactures() {
 		for (Client monClient : clients) {
-			if (monClient.getFactures().size() > 0) {
-				System.out.println("\t La liste des factures:");
+			// if (monClient.getFactures().size() > 0) {
+			if (!monClient.getFactures().isEmpty()) {
+				System.out.println("\tFactures:");
 
 				for (Facture maFacture : monClient.getFactures()) {
 					maFacture.afficheToi();
@@ -140,4 +141,91 @@ public class Garage {
 			}
 		}
 	}
+
+	/* VERSION AVEC LOCATION
+
+	private String garageName;
+
+	private List<Voiture> voitures;
+	private List<Client> clients;
+	private List<Location> locations;
+
+	public Garage(String garageName) {
+
+		this.garageName = garageName;
+
+		voitures = new ArrayList<>();
+		clients = new ArrayList<>();
+		locations = new ArrayList<>();
+	}
+
+	public void addVoiture(Voiture... desVoitures) {
+
+		for (Voiture v : desVoitures) {
+			voitures.add(v);
+		}
+	}
+
+	public void addClient(Client... desClients) {
+
+		for (Client c : desClients) {
+			clients.add(c);
+		}
+	}
+
+	public Location louerVoiture(Client client, Voiture voiture) {
+
+		if (estLouee(voiture)) {
+			System.out.println("Voiture déjà louée");
+			return null;
+		}
+
+		Location location = new Location(client, voiture);
+
+		locations.add(location);
+
+		return location;
+	}
+
+	public boolean estLouee(Voiture voiture) {
+
+		for (Location location : locations) {
+
+			if (location.getVoiture() == voiture && location.estActive()) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	public void retourVoiture(Location location, int kmRetour, int nbJours) {
+
+		Facture facture = location.terminerLocation(kmRetour, nbJours);
+
+		if (facture != null) {
+			location.getClient().addFacture(facture);
+		}
+	}
+
+	public void afficheToi() {
+
+		System.out.println("Garage : " + garageName);
+
+		System.out.println("Voitures :");
+
+		for (Voiture v : voitures) {
+			v.afficheToi();
+
+			if (estLouee(v)) {
+				System.out.println("\t\tActuellement louée");
+			}
+		}
+
+		System.out.println("Clients :");
+
+		for (Client c : clients) {
+			c.afficheToi();
+		}
+	}*/
 }
