@@ -26,27 +26,28 @@ public class Main {
         // ** FIN
 
         marie.addClient(monClient1);
+
         xavier.addClient(monClient2);
         xavier.addClient(monClient3);
 
-
-
         marie.addVoiture(maVoiture1);
+
         //xavier.addVoiture(maVoiture2, maVoiture3); -> peut-on l'écrire en une seule ligne? oui c'est possible il faut changer la signature de la fonction addVoiture
         xavier.addVoiture(maVoiture2);
         xavier.addVoiture(maVoiture3);
 
         // System.out.println(marie.compteNbVoitureDeLaCouleur("bleue"));
+        // xavier.renvoiLaVoitureQuiALePlusDeKm().afficheToi();
 
 
         maVoiture2.locationVoiture(monClient2);
-        maVoiture2.afficheToi();
-
-
-
-
         maVoiture2.retourVoiture(20,3);
-        maVoiture2.afficheToi();
-       // xavier.renvoiLaVoitureQuiALePlusDeKm().afficheToi();
+
+        maVoiture3.locationVoiture(monClient2);
+        maVoiture3.retourVoiture(20,3);
+
+
+        //xavier.afficheToi();
+        xavier.afficheFactures();
     }
 }

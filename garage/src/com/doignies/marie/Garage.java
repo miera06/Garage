@@ -28,7 +28,7 @@ public class Garage {
             maVoiture.afficheToi();
         }
 
-        System.out.println("Liste de clients : " );
+        System.out.println("Liste de clients : ");
         for (Client monClient : clients) {
             monClient.afficheToi();
         }
@@ -64,10 +64,10 @@ public class Garage {
     }
 
     public int compteNbVoitureDeLaCouleur(String couleurATester) {
-        int compteurDeVoiture=0;
+        int compteurDeVoiture = 0;
         for (Voiture maVoiture : voitures) {
-            if (maVoiture.getColor() == couleurATester){
-                compteurDeVoiture=compteurDeVoiture+1;
+            if (maVoiture.getColor() == couleurATester) {
+                compteurDeVoiture = compteurDeVoiture + 1;
             }
         }
         return compteurDeVoiture;
@@ -78,16 +78,33 @@ public class Garage {
         //1-sauvagarder le nm de km ET 2-comparer le nb de km avec la précédente
         // 3-sauvegarder la voiture
         //4-renvoi la  voiture
-        int nbMaxKm=0;
+        int nbMaxKm = 0;
 
         Voiture maVoitureKmMax = new Voiture();
 
-        for (Voiture maVoiture : voitures){
-            if(maVoiture.getNbKm() >= nbMaxKm){ //est ce que ma voiture.blabla est plus grand que nbMaxKm?
+        for (Voiture maVoiture : voitures) {
+            if (maVoiture.getNbKm() >= nbMaxKm) { //est ce que ma voiture.blabla est plus grand que nbMaxKm?
                 maVoitureKmMax = maVoiture;
                 nbMaxKm = maVoiture.getNbKm();
             }
         }
         return maVoitureKmMax;
+    }
+
+
+    //TODO fonction qui affiche toutes les factures du garages (afficheFacture)
+    //tips : reprendre la fonction affiche toi et retirer tout ce qui ne concerne pas les factures
+
+    public void afficheFactures() {
+        for (Client monClient : clients) {
+            if (monClient.getFactures().size() > 0) {
+                System.out.println("\t La liste des factures:");
+                for (Facture maFacture : monClient.getFactures()) {
+                    maFacture.afficheToi();
+                }
+            }
+
+        }
+
     }
 }

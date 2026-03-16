@@ -27,10 +27,15 @@ public class Voiture {
 
     public Voiture () {
     }
-
-
-
     //* getters et setters
+    public String getMarque() {
+        return marque;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
 
     public String getColor() { return this.color;}
     public int getNbKm() { return this.nbKm;}
@@ -40,10 +45,10 @@ public class Voiture {
     public void afficheToi() {
         System.out.println ("\t" + "- model : " + this.model + " / marque : " + this.marque);
         if (this.loueur != null) {
-            System.out.println("\t" + "- loué par: " + this.loueur.getName());
+            System.out.println("\t\t" + "- loué par: " + this.loueur.getName());
         }
         else {
-            System.out.println ("\t" + "- n'est pas louée " );
+            System.out.println ("\t\t" + "- n'est pas louée " );
             }
 
     }
@@ -63,8 +68,12 @@ public class Voiture {
     public void retourVoiture (int combienJaiRoule, int nbJourLoc) {
         if(this.estLoue()==true && combienJaiRoule >= 0 && nbJourLoc >=0) {
             this.nbKm=nbKm+combienJaiRoule;
+
+            Facture nouvelleFacture = new Facture(this.loueur, this, this.tarifParJour*nbJourLoc);
+            this.loueur.addFacture(nouvelleFacture);
             this.loueur=null;
-            System.out.println ("le prix :" + this.tarifParJour*nbJourLoc);
+
+
 
         }
         else {
