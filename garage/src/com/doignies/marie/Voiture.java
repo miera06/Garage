@@ -1,0 +1,85 @@
+
+package com.doignies.marie;
+
+public class Voiture {
+    //*variables
+    private String marque;
+    private String model;
+    private String color;
+    private int prix;
+    private String etat;
+    private int nbKm;
+    private Client loueur;
+
+    //*constructeur
+    public Voiture (String newMarque,
+                    String newModel,
+                    String newColor,
+                    int newPrix) {
+        this.marque = newMarque;
+        this.model= newModel;
+        this.color = newColor;
+        this.prix = newPrix;
+        this.etat = "neuf";
+        this.nbKm = 0;
+        this.
+    }
+
+    public Voiture () {
+    }
+
+    //public void Client (String newName,
+    //             String newSurname,
+    //           int newAge) {}
+
+    //* getters et setters
+
+    public String getColor() { return this.color;}
+    public int getNbKm() { return this.nbKm;}
+
+    // * fonctions
+
+    public void afficheToi() {
+        System.out.println ("\t" + "- model : " + this.model + " / marque : " + this.marque + " / loueur : " + this.loueur);
+    }
+
+    public void locationVoiture (String nomDuLoueur) {
+        if(this.estLoue()==false){
+            this.loueur=nomDuLoueur;
+            this.etat="utilisé";
+        }
+        else{
+            System.out.println("erreur, voiture déjà louée");
+        }
+
+    }
+
+    public void retourVoiture (int combienJaiRoule) {
+        if(this.estLoue()==true && combienJaiRoule >= 0) {
+            this.nbKm=nbKm+combienJaiRoule;
+            this.loueur="";
+        }
+        else {
+            System.out.println("erreur, voiture n'est pas louée OU tu es un couillon");
+        }
+
+    }
+
+    public void peindreVoiture (String newColor) {
+        // il faut changer la couleur
+        this.color=newColor;
+
+
+    }
+
+    private boolean estLoue (){
+        if (this.loueur != ""){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+
+}
