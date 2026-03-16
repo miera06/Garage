@@ -68,7 +68,7 @@ public class Voiture {
 	// *** Fonctions ***
 	// /////////////////
 	public void afficheToi() {
-		System.out.println ("\t" + "- model : " + this.model + " / marque : " + this.marque);
+		System.out.println ("\tVoiture : " + this.model + " " + this.marque);
 		if (this.loueur != null) {
 			System.out.println("\t\t" + "- loué par: " + this.loueur.getName());
 		} else {
