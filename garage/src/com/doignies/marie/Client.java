@@ -14,12 +14,12 @@ public class Client {
 	// TODO : ETAPE 1
 	// TODO : Un client mineur ne peut pas emprunter
 	// TODO : si c'est le cas message d'erreur : "Le client est mineur"
-	private boolean aDejaEmprunte;
 	// TODO : ETAPE 2
 	// TODO : remplacer par : private int nbEmprunt.
 	// TODO : adapter le code
 	// TODO : 0 lors de la création. Puis +1 à chaque fois que le client emprunte
 	private List<Facture> factures;
+	private int nbEmprunt;
 
 	// /////////////////////
 	// *** Constructeurs ***
@@ -33,8 +33,8 @@ public class Client {
 		this.name = newName;
 		this.surname= newSurname;
 		this.age = newAge;
-		this.aDejaEmprunte = false;
 		this.factures= new ArrayList<Facture>();
+		this.nbEmprunt=0;
 		// Liste vide obligatoire et non pas null (n'existe pas)
 		// car sinon la fonction addFacture ne peut pas fonctionner
 		// On ne peut pas ajouter dans une liste qui n'existe pas
@@ -47,16 +47,17 @@ public class Client {
 		return name;
 	}
 
+	public int getAge() {return age;}
+
 	public List<Facture> getFactures() {
 		return factures;
 	}
 
+
 	// ///////////////
 	// *** Setters ***
 	// ///////////////
-	public void setADejaEmprunte(boolean aDejaEmprunte) {
-		this.aDejaEmprunte = aDejaEmprunte;
-	}
+	public void setNbEmprunt(int nbEmprunt) {this.nbEmprunt = nbEmprunt;}
 
 	// /////////////////
 	// *** Fonctions ***
@@ -76,4 +77,25 @@ public class Client {
 	public void addFacture(Facture nouvelleFacture) {
 		factures.add(nouvelleFacture);
 	}
+
+	// Etape 1
+	public void peutEmpunter (){
+		if(this.age>=18){
+			// ne rien mettre?
+			// ou mettre dans le sens inverse et ne pas mettre de else? if (this.age<18){syste....("erreur...");}
+		}else {
+			System.out.println ("erreur, le client est mineur");
+		}
+	}
+	//public int compteLeNbEmprunt(){
+	//	if(this.age<18){
+	//		System.out.println ("erreur, le client est mineur");
+	//	}
+	//	else {
+	//		}
+	//	}
+	//}
+
+
 }
+

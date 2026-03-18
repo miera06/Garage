@@ -11,9 +11,8 @@ public class Voiture {
 	private String model;
 	private String color;
 	private int tarifParJour;
-	private String etat;
-	// TODO : ETAPE 3
-	// TODO : Supprimer cette variable
+		// TODO : ETAPE 3
+	// TODO : Supprimer cette variable "etat"
 	// TODO : Je ne sais pas a quoi peut servir cette information
 	private int nbKm;
 	private Client loueur;
@@ -29,7 +28,6 @@ public class Voiture {
 		this.model = newModel;
 		this.color = newColor;
 		this.tarifParJour = newtarifParJour;
-		this.etat = "neuf";
 		this.nbKm = 0;
 		this.loueur = null;
 	}
@@ -77,13 +75,17 @@ public class Voiture {
 	}
 
 	public void locationVoiture(Client clientLoueur) {
+		if(this.loueur.getAge()<18){
+			System.out.println ("erreur, le client est mineur");
+		}
+		else {
 		// if(this.estLoue()==false) {
 		if(!this.estLoue()) {
 			this.loueur = clientLoueur;
-			this.etat = "utilisé";
-			clientLoueur.setADejaEmprunte(true);
+			clientLoueur.setNbEmprunt(1);
 		} else {
 			System.out.println("erreur, voiture déjà louée");
+		}
 		}
 	}
 
@@ -109,8 +111,7 @@ public class Voiture {
 	public void peindreVoiture (String newColor) {
 		this.color = newColor;
 	}
-
-	private boolean estLoue () {
+	public boolean estLoue () {
 		/*
 		if (this.loueur != null) {
 			return true;
@@ -118,12 +119,11 @@ public class Voiture {
 			return false;
 		}
 		*/
-
 		// Explication
 		// Si (this.loueur != null) vaut TRUE alors Renvoyer TRUE
 		// Si (this.loueur != null) vaut FALSE alors Renvoyer FALSE
 		// Du coup on peut renvoyer this.loueur != null directement
-
 		return this.loueur != null;
 	}
+
 }

@@ -51,7 +51,7 @@ public class Main {
 		// Création des Clients
 		Client monClient1 = new Client("Toutou", "Bob", 55);
 		Client monClient2 = new Client("Dada", "Ollie", 35);
-		Client monClient3 = new Client("Baba", "Barbara", 26);
+		Client monClient3 = new Client("Baba", "Barbara", 17);
 
 		// ** FIN du jeu de test
 
@@ -71,6 +71,6 @@ public class Main {
 		maVoiture3.retourVoiture(20, 3);
 
 		xavier.afficheToi();
-		xavier.afficheFactures();
+		//xavier.afficheFactures();
 	}
 }
