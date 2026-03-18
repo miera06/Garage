@@ -67,10 +67,10 @@ public class Main {
 		maVoiture2.locationVoiture(monClient2);
 		maVoiture2.retourVoiture(20, 3);
 
-		maVoiture3.locationVoiture(monClient2);
+		maVoiture3.locationVoiture(monClient3);
 		maVoiture3.retourVoiture(20, 3);
 
 		xavier.afficheToi();
-		//xavier.afficheFactures();
+		xavier.afficheFactures();
 	}
 }

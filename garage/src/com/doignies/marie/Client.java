@@ -53,6 +53,7 @@ public class Client {
 		return factures;
 	}
 
+	public int getNbEmprunt() {return nbEmprunt;}
 
 	// ///////////////
 	// *** Setters ***
@@ -79,22 +80,15 @@ public class Client {
 	}
 
 	// Etape 1
-	public void peutEmpunter (){
+	public boolean peutEmpunter (){
 		if(this.age>=18){
-			// ne rien mettre?
-			// ou mettre dans le sens inverse et ne pas mettre de else? if (this.age<18){syste....("erreur...");}
+			return true;
 		}else {
-			System.out.println ("erreur, le client est mineur");
+			return false;
+			//System.out.println ("erreur, le client est mineur");
 		}
 	}
-	//public int compteLeNbEmprunt(){
-	//	if(this.age<18){
-	//		System.out.println ("erreur, le client est mineur");
-	//	}
-	//	else {
-	//		}
-	//	}
-	//}
+
 
 
 }

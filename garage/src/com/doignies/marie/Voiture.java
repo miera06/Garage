@@ -75,14 +75,14 @@ public class Voiture {
 	}
 
 	public void locationVoiture(Client clientLoueur) {
-		if(this.loueur.getAge()<18){
+		if(clientLoueur.peutEmpunter() == false){
 			System.out.println ("erreur, le client est mineur");
 		}
 		else {
 		// if(this.estLoue()==false) {
 		if(!this.estLoue()) {
 			this.loueur = clientLoueur;
-			clientLoueur.setNbEmprunt(1);
+			//clientLoueur.setNbEmprunt(clientLoueur.getNbEmprunt()++);
 		} else {
 			System.out.println("erreur, voiture déjà louée");
 		}
@@ -111,7 +111,7 @@ public class Voiture {
 	public void peindreVoiture (String newColor) {
 		this.color = newColor;
 	}
-	public boolean estLoue () {
+	private boolean estLoue () {
 		/*
 		if (this.loueur != null) {
 			return true;
