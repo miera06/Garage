@@ -11,13 +11,6 @@ public class Client {
 	private String name;
 	private String surname;
 	private int age;
-	// TODO : ETAPE 1
-	// TODO : Un client mineur ne peut pas emprunter
-	// TODO : si c'est le cas message d'erreur : "Le client est mineur"
-	// TODO : ETAPE 2
-	// TODO : remplacer par : private int nbEmprunt.
-	// TODO : adapter le code
-	// TODO : 0 lors de la création. Puis +1 à chaque fois que le client emprunte
 	private List<Facture> factures;
 	private int nbEmprunt;
 
@@ -79,7 +72,6 @@ public class Client {
 		factures.add(nouvelleFacture);
 	}
 
-	// Etape 1
 	public boolean peutEmpunter (){
 		if(this.age>=18){
 			return true;

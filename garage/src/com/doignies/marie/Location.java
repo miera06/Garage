@@ -2,7 +2,8 @@
 package com.doignies.marie;
 
 import java.time.LocalDate;
-
+//TODO 3: recuperer les variables de ligne 0 à 14.
+// decommenter la classe location pour chaque foncion et l'expliquer puis modif code pour utiliser classe locationet plus ce qu'on utilisait avant.
 public class Location {
 	// /////////////////
 	// *** Variables ***

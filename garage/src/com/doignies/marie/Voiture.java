@@ -11,9 +11,6 @@ public class Voiture {
 	private String model;
 	private String color;
 	private int tarifParJour;
-		// TODO : ETAPE 3
-	// TODO : Supprimer cette variable "etat"
-	// TODO : Je ne sais pas a quoi peut servir cette information
 	private int nbKm;
 	private Client loueur;
 
@@ -76,14 +73,15 @@ public class Voiture {
 
 	public void locationVoiture(Client clientLoueur) {
 		if(clientLoueur.peutEmpunter() == false){
-			System.out.println ("erreur, le client est mineur");
-		}
-		else {
-		// if(this.estLoue()==false) {
-		if(!this.estLoue()) {
-			this.loueur = clientLoueur;
-			//clientLoueur.setNbEmprunt(clientLoueur.getNbEmprunt()++);
+			System.out.println ("erreur, le client ne peut pas emprunter");
 		} else {
+		// if(this.estLoue()==false) {
+			if(!this.estLoue()) {
+			this.loueur = clientLoueur;
+			int leNbEmpruntDuClient= clientLoueur.getNbEmprunt();
+			leNbEmpruntDuClient++;
+			clientLoueur.setNbEmprunt(leNbEmpruntDuClient);
+			} else {
 			System.out.println("erreur, voiture déjà louée");
 		}
 		}
