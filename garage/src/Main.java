@@ -50,6 +50,18 @@ public class Main {
 		// Affiche un message lors du survol de la fonction avec la souris
 		// xavier.compteNbVoitureDeLaCouleur();
 
+		// Comment déclarer une focntion
+		// (public private) (static ou non) (void bool/int etc) (nom) param {}
+
+
+		// int i = Math.max(1, 2);
+		// System.out.println(i);
+
+		//quel est le nom de la classe : Math
+		//le nom de la fonction : max
+		//le nb de parametre quel type et leur vlauer : 2 / 1 et 2
+		//ecrire la signature de la fonction :  public static int max(int, int) {}
+
 		// ** DEBUT du jeu de test
 		// ** J'ai le doit de mettre du texte
 		// ** des valeurs en dur
@@ -81,13 +93,6 @@ public class Main {
 		// Ajout des Voitures dans les Garages
 		marie.addVoiture(maVoiture1);
 		xavier.addVoiture(maVoiture2, maVoiture3); // Tu as demandé si c'est possible : c'est possible d'ajouté plusieurs voiture d'un coup
-
-
-
-
-
-
-
 
 
 		xavier.locationVoiture(monClient1, maVoiture1); // ca ne fonctionne pas
