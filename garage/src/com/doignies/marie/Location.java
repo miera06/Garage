@@ -72,9 +72,23 @@ public class Location {
 		int kmParcourus = kmRetour - kmDepart;
 		voiture.ajouteKm(kmParcourus);
 
-		long nbJours = ChronoUnit.DAYS.between(this.dateDebut, this.dateFin);
-		long prix = voiture.getTarifParJour() * nbJours;
+		long prix = this.calculPrix();
 
 		return new Facture(client, voiture, prix, this.dateFin);
+	}
+
+	private long calculPrix() {
+		long nbJours = ChronoUnit.DAYS.between(this.dateDebut, this.dateFin);
+		long prix = 0;
+
+		if(client.getNbEmprunt() != 1) {
+			prix = voiture.getTarifParJour() * nbJours;
+		} else {
+			prix = 2 * (voiture.getTarifParJour() * nbJours);
+		}
+
+		// prix  = client.getNbEmprunt() != 1 ?  voiture.getTarifParJour() * nbJours : 2 * (voiture.getTarifParJour() * nbJours);
+
+		return prix;
 	}
 }
