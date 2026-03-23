@@ -51,7 +51,6 @@ public class Client {
 	// ///////////////
 	// *** Setters ***
 	// ///////////////
-	public void setNbEmprunt(int nbEmprunt) {this.nbEmprunt = nbEmprunt;}
 
 	// /////////////////
 	// *** Fonctions ***
@@ -81,7 +80,9 @@ public class Client {
 		}
 	}
 
-
-
+	public void addNbEmprunt (){
+		this.nbEmprunt ++;
+		// this.nbEmprunt += 1;
+		// this.nbEmprunt = this.nbEmprunt + 1;
+	}
 }
-

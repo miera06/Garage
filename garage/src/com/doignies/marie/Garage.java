@@ -1,7 +1,9 @@
 
 package com.doignies.marie;
 
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Garage {
@@ -11,6 +13,7 @@ public class Garage {
 	private String garageName;
 	private List<Voiture> voitures;
 	private List<Client> clients;
+	private List<Location> locations;
 
 	// /////////////////////
 	// *** Constructeurs ***
@@ -30,6 +33,7 @@ public class Garage {
 		// Liste vide obligatoire et non pas null (n'existe pas)
 		// car sinon la fonction addClient ne peut pas fonctionner
 		// On ne peut pas ajouter dans une liste qui n'existe pas
+		this.locations = new ArrayList<Location>();
 	}
 
 	// ///////////////
@@ -87,23 +91,28 @@ public class Garage {
 		// Appel de la fonction size() qui existe deja dans la class liste
 	}
 
+	/**
+	 * Renvoie le nombre de voitures de la couleur en parametre
+	 * Renvoie 0 si la couleur est null
+	 */
 	public int compteNbVoitureDeLaCouleur(String couleurATester) {
-		// TODO 4
-		// TODO : Ajouter une protection si pas de couleur en parametre
 
 		int compteurDeVoiture = 0;
 
-		for (Voiture maVoiture : voitures) {
-			if (maVoiture.getColor() == couleurATester) {
-				// TODO : Correction à faire
-				// TODO : if (couleurATester.equals(maVoiture.getColor())) {
-				// TODO : if (maVoiture.getColor().equals(couleurATester)) { => NullPointerException possible
+		if (couleurATester == null) {
+			// TODO : Faire une Exception
+			System.out.print("La couleur n'existe pas");
+		} else {
+			for (Voiture maVoiture : voitures) {
+				// if (maVoiture.getColor(). == couleurATester) { // Mauvaise maniere de comparer deux CLASSES car String est une classe
 
-
-				// compteurDeVoiture = compteurDeVoiture + 1;
-				compteurDeVoiture ++;
+				if (couleurATester.equals(maVoiture.getColor())) { // On est sure et certain que couleurATester n'est pas null
+					// compteurDeVoiture = compteurDeVoiture + 1;
+					compteurDeVoiture++;
+				}
 			}
 		}
+
 		return compteurDeVoiture;
 	}
 
@@ -112,20 +121,16 @@ public class Garage {
 		// 1-sauvegarder le nb de km ET 2-comparer le nb de km avec la précédente
 		// 3-sauvegarder la voiture
 		// 4-renvoi la  voiture
-		int nbMaxKm = 0;
 
-		Voiture maVoitureKmMax = new Voiture();
-		// TODO : Voiture maVoitureKmMax = null;
-		// TODO : A VOIR ENSEMBLE
+		Voiture maVoitureKmMax = null;
 
 		for (Voiture maVoiture : voitures) {
-			// TODO : if (maVoitureKmMax == null || maVoiture.getNbKm() > maVoitureKmMax.getNbKm()) {
-			// TODO : A VOIR ENSEMBLE
-			if (maVoiture.getNbKm() >= nbMaxKm) {
+			// if (maVoitureKmMax == null || maVoiture.getNbKm() > maVoitureKmMax.getNbKm()) {     => prend la premiere voiture avec le plus de km
+			if (maVoitureKmMax == null || maVoiture.getNbKm() >= maVoitureKmMax.getNbKm()) {	// => prend la derniere voiture avec le plus de km
 				maVoitureKmMax = maVoiture;
-				nbMaxKm = maVoiture.getNbKm();
 			}
 		}
+
 		return maVoitureKmMax;
 	}
 
@@ -139,6 +144,70 @@ public class Garage {
 					maFacture.afficheToi();
 				}
 			}
+		}
+	}
+
+	private boolean locationPossible (Client clientLoueur, Voiture voitureLouee){
+		if (!clients.contains(clientLoueur)) {// si client loueur n'est as ds le farage erreur et  retourne false
+			System.out.println ("erreur, le client n'est pas dans le garage");
+			return false;
+		}
+		if (!voitures.contains(voitureLouee)) {// si voiture louée n'est as ds le farage erreur et  retourne false
+			System.out.println("erreur, la voiture n'est pas dans le garage");
+			return false;
+		}
+		if (!clientLoueur.peutEmpunter()) {
+			System.out.println ("erreur, le client " + clientLoueur.getName() + " ne peut pas emprunter");
+			return false;
+		}
+
+		for (Location maLocation : locations) { // pour toutes mes locations
+			if (voitureLouee.equals(maLocation.getVoiture()) && !maLocation.estTerminee()) {
+				System.out.println("erreur, voiture déjà louée");
+				return false;
+			}
+		}
+
+		return true;
+	}
+
+	public void locationVoiture(Client clientLoueur, Voiture voitureLouee) {
+		if (this.locationPossible(clientLoueur, voitureLouee)) {
+			Location maLocation = new Location(clientLoueur, voitureLouee); // Etape 1 je créée ma location
+			locations.add(maLocation);//ajouter nouvelle location à la liste des locations
+			clientLoueur.addNbEmprunt();
+		}
+
+	}
+
+	public void retourVoiture (int kmDeLaVoitureAuRetour, Client clientLoueur) {
+		if(kmDeLaVoitureAuRetour >= 0)  {
+
+			boolean jaiTrouverLaLocation = false;
+
+			for (Location maLocation : locations){
+				if(clientLoueur.equals(maLocation.getClient()) && !maLocation.estTerminee()){
+					if(kmDeLaVoitureAuRetour > maLocation.getKmDepart()){ //si km au retour > km au depart
+
+					jaiTrouverLaLocation = true;
+
+					Facture nouvelleFacture = maLocation.terminerLocation(kmDeLaVoitureAuRetour);
+					clientLoueur.addFacture(nouvelleFacture);
+					}else {
+						System.out.println ("erreur km retour < km arrivé");
+					}
+
+					// J'ajoute un facture au client aui a loué la voiture
+
+
+				}
+			}
+
+			if (!jaiTrouverLaLocation) {
+				System.out.println("message erreur : client sans location ou toutes ses locations sont deja finies");
+			}
+		} else {
+			System.out.println("erreur, kmDeLaVoitureAuRetour");
 		}
 	}
 

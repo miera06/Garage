@@ -35,6 +35,21 @@ public class Main {
 		//        voitureEnCours.display();
 		// }
 
+		// ET
+		// true && true => true
+		// true && false => false
+		// false && true => false
+		// false && false => false
+
+		// OU
+		// true || true => true
+		// true || false => true
+		// false || true => true
+		// false || false => false
+
+		// Affiche un message lors du survol de la fonction avec la souris
+		// xavier.compteNbVoitureDeLaCouleur();
+
 		// ** DEBUT du jeu de test
 		// ** J'ai le doit de mettre du texte
 		// ** des valeurs en dur
@@ -44,14 +59,18 @@ public class Main {
 		Garage xavier = new Garage("Xavier");
 
 		// Création des Voitures
-		Voiture maVoiture1 = new Voiture("Dacia", "Duster", "blanche", 100);
+		/*Voiture maVoiture1 = new Voiture("Dacia", "Duster", "blanche", 100);
 		Voiture maVoiture2 = new Voiture("Renault", "Clio", "bleue", 150);
 		Voiture maVoiture3 = new Voiture("Peugeot", "208", "rouge", 200);
+		Voiture maVoiture4 = new Voiture("Peugeot", "208", null, 200);*/
+		Voiture maVoiture1 = new Voiture("maVoiture1", "maVoiture1", "blanche", 100);
+		Voiture maVoiture2 = new Voiture("maVoiture2", "maVoiture2", "bleue", 150);
+		Voiture maVoiture3 = new Voiture("maVoiture3", "maVoiture3", "rouge", 200);
 
 		// Création des Clients
-		Client monClient1 = new Client("Toutou", "Bob", 55);
-		Client monClient2 = new Client("Dada", "Ollie", 35);
-		Client monClient3 = new Client("Baba", "Barbara", 17);
+		Client monClient1 = new Client("monClient1", "monClient1", 55);
+		Client monClient2 = new Client("monClient2", "monClient2", 35);
+		Client monClient3 = new Client("monClient3", "monClient3", 17);
 
 		// ** FIN du jeu de test
 
@@ -64,13 +83,26 @@ public class Main {
 		xavier.addVoiture(maVoiture2, maVoiture3); // Tu as demandé si c'est possible : c'est possible d'ajouté plusieurs voiture d'un coup
 
 
-		maVoiture2.locationVoiture(monClient2);
-		maVoiture2.retourVoiture(20, 3);
 
-		maVoiture3.locationVoiture(monClient3);
-		maVoiture3.retourVoiture(20, 3);
+
+
+
+
+
+
+		xavier.locationVoiture(monClient1, maVoiture1); // ca ne fonctionne pas
+		xavier.locationVoiture(monClient1, maVoiture2); // ca ne fonctionne pas
+		xavier.locationVoiture(monClient2, maVoiture1); // ca ne fonctionne pas
+
+		xavier.locationVoiture(monClient2, maVoiture2);
+		xavier.retourVoiture(150, monClient2);
+
+		xavier.locationVoiture(monClient2, maVoiture2);
+		xavier.retourVoiture(150, monClient2);
+
+		xavier.locationVoiture(monClient3, maVoiture3);
+		xavier.retourVoiture(200, monClient3);
 
 		xavier.afficheToi();
-		xavier.afficheFactures();
 	}
 }
