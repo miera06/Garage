@@ -94,6 +94,9 @@ public class Main {
 		marie.addVoiture(maVoiture1);
 		xavier.addVoiture(maVoiture2, maVoiture3); // Tu as demandé si c'est possible : c'est possible d'ajouté plusieurs voiture d'un coup
 
+		// TODO 1 : Lors de la facture
+		// TODO 1 : Si le nbEmprtun du client est 1
+		// TODO 1 : Alors multiplier le prix par 2
 
 		xavier.locationVoiture(monClient1, maVoiture1); // ca ne fonctionne pas
 		xavier.locationVoiture(monClient1, maVoiture2); // ca ne fonctionne pas

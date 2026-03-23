@@ -75,6 +75,6 @@ public class Location {
 		long nbJours = ChronoUnit.DAYS.between(this.dateDebut, this.dateFin);
 		long prix = voiture.getTarifParJour() * nbJours;
 
-		return new Facture(client, voiture, prix);
+		return new Facture(client, voiture, prix, this.dateFin);
 	}
 }

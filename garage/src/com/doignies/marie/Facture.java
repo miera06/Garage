@@ -14,14 +14,13 @@ public class Facture {
 	// /////////////////////
 	// *** Constructeurs ***
 	// /////////////////////
-	public Facture(final Client newClient, final Voiture newVoiture, final long newPrixLocation) {
+	public Facture(final Client newClient, final Voiture newVoiture, final long newPrixLocation, LocalDate newDate) {
 		// On ne met pas newDate
 		// dans la liste des parametres car lors de la Création d'une facture
 		// 1. On met la date du jour à l'instant T
 		this.client = newClient;
 		this.voiture = newVoiture;
-		this.date = LocalDate.now();
-		// TODO : ICI il faut la date de fin de la location
+		this.date = newDate;
 		this.prixLocation = newPrixLocation;
 	}
 
