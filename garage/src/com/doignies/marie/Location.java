@@ -42,7 +42,7 @@ public class Location {
 		// return dateFin != null;
 	}
 
-	public Facture terminerLocation(int kmRetour) {
+	public Facture terminerLocation(final int kmRetour) {
 		if (this.estTerminee()) {
 			Erreur.a("Location déjà terminée");
 			return null;

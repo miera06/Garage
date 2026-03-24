@@ -1,6 +1,8 @@
 
 package com.doignies.marie;
 
+import com.doignies.marie.utils.Affiche;
+
 public class Voiture {
 	// /////////////////
 	// *** Variables ***
@@ -11,7 +13,7 @@ public class Voiture {
 	private String model;
 	private String color;
 	private int tarifParJour;
-	private int nbKm;
+	private int nbKm = 0;         // valeur lors de la creation
 
 	// /////////////////////
 	// *** Constructeurs ***
@@ -24,54 +26,51 @@ public class Voiture {
 		this.model = newModel;
 		this.color = newColor;
 		this.tarifParJour = newtarifParJour;
-		this.nbKm = 0;
+
+		// On ne met pas newNbKm
+		// dans la liste des parametres car lors de la Création d'une Voiture
+		// il a deja une valeur par defaut
+	}
+
+	// /////////////////
+	// *** Fonctions ***
+	// /////////////////
+	public void afficheToi() {
+		Affiche.a("\tVoiture : " + this.model + " " + this.marque + " (" + this.tarifParJour + " €/j) (" + this.nbKm + " km)");
+	}
+
+	public void ajouteKm (final int combienJaiRoule){
+		this.nbKm += combienJaiRoule;
+	}
+
+	public void peindreVoiture (final String newColor) {
+		this.color = newColor;
 	}
 
 	// ///////////////
 	// *** Getters ***
 	// ///////////////
 	public String getMarque() {
-		return marque;
+		return this.marque;
 	}
 
 	public String getModel() {
-		return model;
+		return this.model;
 	}
 
 	public String getColor() {
 		return this.color;
 	}
 
+	public int getTarifParJour() {
+		return this.tarifParJour;
+	}
+
 	public int getNbKm() {
 		return this.nbKm;
 	}
 
-	public int getTarifParJour() {return tarifParJour;}
-
 	// ///////////////
 	// *** Setters ***
 	// ///////////////
-
-	// /////////////////
-	// *** Fonctions ***
-	// /////////////////
-	public void afficheToi() {
-		System.out.println ("\tVoiture : " + this.model + " " + this.marque);
-
-
-		// TODO : A ADAPTER
-		/*if (this.loueur != null) {
-			System.out.println("\t\t" + "- loué par: " + this.loueur.getName());
-		} else {
-			System.out.println ("\t\t" + "- n'est pas louée " );
-		}*/
-	}
-
-	public void ajouteKm (int combienJaiRoule){
-		this.nbKm += combienJaiRoule;
-	}
-
-	public void peindreVoiture (String newColor) {
-		this.color = newColor;
-	}
 }
