@@ -36,7 +36,7 @@ public class Client {
 	// *** PUBLIC ***
 
 	public void afficheToi() {
-		Affiche.a("\tClient : " + this.name + " " + this.surname + " (" + this.age + " )");
+		Affiche.a("\tClient : " + this.name + " " + this.surname + " (" + this.age + " ans)");
 
 		if (!this.factures.isEmpty()) { // if(factures.size() > 0) { // Protection pour ne pas afficher si il n'y a pas de factures
 			Affiche.a("\t\tFactures : ");
