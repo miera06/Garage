@@ -6,13 +6,35 @@ import com.doignies.marie.Voiture;
 public class Main {
 	public static void main(String[] args) {
 		// TIPS
+		// ******************************************
+		// 1. Déclaration
+		//        On crée la variable (on dit qu’elle existe)
+		//        int age;
+		//        La variable age existe
+		//        Mais elle n’a pas encore de valeur
+		// 2. Initialisation
+		//        On donne une première valeur à la variable
+		//        age = 25;
+		//        C’est la première fois qu’on lui donne une valeur
+		// 3. Affectation
+		//        On change la valeur d’une variable déjà initialisée
+		//        age = 30;
+		// ******************************************
+		// final = valeur fixe (constante). Une fois initialisée : impossible de changer la valeur
+		//        final int age = 25;
+		//        age = 30; => ERREUR
+		//        Pourquoi utiliser final ?
+		//        1. Sécurité(éviter les erreurs). Tu empêches les modifications accidentelles:
+		//             final double PI = 3.14159; => Personne ne pourra modifier PI par erreur
+		//        2. Code plus lisible
+		// ******************************************
 		// System.out.println(marie.compteNbVoitureDeLaCouleur("bleue"));
-		// ==> Affiche le nombre de voiture bleue dans le garage marie
-
+		//        ==> Affiche le nombre de voiture bleue dans le garage marie
+		// ******************************************
 		// xavier.renvoiLaVoitureQuiALePlusDeKm().afficheToi();
-		// ==> Renvoie la voiture qui a le plus de KM.
-		// ==> puis affiche la
-
+		//        ==> Renvoie la voiture qui a le plus de KM.
+		//        ==> puis affiche la
+		// ******************************************
 		// Boucle for numero 1
 		// pour chaque voiture de ma liste de voiture (ma liste de voiture s'appelle voitures)
 		//        on doit afficher la  voiture
@@ -34,33 +56,34 @@ public class Main {
 		//        Voiture voitureDeLaListeALaPositionI = this.voitures.get(i);
 		//        voitureEnCours.display();
 		// }
-
+		// ******************************************
 		// ET
 		// true && true => true
 		// true && false => false
 		// false && true => false
 		// false && false => false
-
+		// ******************************************
 		// OU
 		// true || true => true
 		// true || false => true
 		// false || true => true
 		// false || false => false
-
+		// ******************************************
 		// Affiche un message lors du survol de la fonction avec la souris
-		// xavier.compteNbVoitureDeLaCouleur();
-
-		// Comment déclarer une focntion
-		// (public private) (static ou non) (void bool/int etc) (nom) param {}
+		//        xavier.compteNbVoitureDeLaCouleur();
+		// ******************************************
+		// Comment déclarer une fonction
+		// [public private] [static ou non] [void bool/int] [nom] ([param]) {}
 
 
 		// int i = Math.max(1, 2);
 		// System.out.println(i);
 
-		//quel est le nom de la classe : Math
-		//le nom de la fonction : max
+		// Quel est le nom de la classe :  Math
+		// Le nom de la fonction : max
 		//le nb de parametre quel type et leur vlauer : 2 / 1 et 2
 		//ecrire la signature de la fonction :  public static int max(int, int) {}
+
 
 		// ** DEBUT du jeu de test
 		// ** J'ai le doit de mettre du texte
@@ -71,10 +94,6 @@ public class Main {
 		Garage xavier = new Garage("Xavier");
 
 		// Création des Voitures
-		/*Voiture maVoiture1 = new Voiture("Dacia", "Duster", "blanche", 100);
-		Voiture maVoiture2 = new Voiture("Renault", "Clio", "bleue", 150);
-		Voiture maVoiture3 = new Voiture("Peugeot", "208", "rouge", 200);
-		Voiture maVoiture4 = new Voiture("Peugeot", "208", null, 200);*/
 		Voiture maVoiture1 = new Voiture("maVoiture1", "maVoiture1", "blanche", 100);
 		Voiture maVoiture2 = new Voiture("maVoiture2", "maVoiture2", "bleue", 150);
 		Voiture maVoiture3 = new Voiture("maVoiture3", "maVoiture3", "rouge", 200);
@@ -94,22 +113,19 @@ public class Main {
 		marie.addVoiture(maVoiture1);
 		xavier.addVoiture(maVoiture2, maVoiture3); // Tu as demandé si c'est possible : c'est possible d'ajouté plusieurs voiture d'un coup
 
-		// TODO 1 : Lors de la facture
-		// TODO 1 : Si le nbEmprtun du client est 1
-		// TODO 1 : Alors multiplier le prix par 2
 
-		xavier.locationVoiture(monClient1, maVoiture1); // ca ne fonctionne pas
-		xavier.locationVoiture(monClient1, maVoiture2); // ca ne fonctionne pas
-		xavier.locationVoiture(monClient2, maVoiture1); // ca ne fonctionne pas
+		xavier.locationVoiture(monClient1, maVoiture1); // ca ne fonctionne pas : monClient1, maVoiture1 pas dans xavier
+		xavier.locationVoiture(monClient1, maVoiture2); // ca ne fonctionne pas : monClient1 pas dans xavier
+		xavier.locationVoiture(monClient2, maVoiture1); // ca ne fonctionne pas : maVoiture1 pas dans xavier
 
 		xavier.locationVoiture(monClient2, maVoiture2);
 		xavier.retourVoiture(150, monClient2);
 
 		xavier.locationVoiture(monClient2, maVoiture2);
-		xavier.retourVoiture(150, monClient2);
+		xavier.retourVoiture(150, monClient2); // ca ne fonctionne pas : kmDeLaVoitureAuRetour trop petit
 
-		xavier.locationVoiture(monClient3, maVoiture3);
-		xavier.retourVoiture(200, monClient3);
+		xavier.locationVoiture(monClient3, maVoiture3); // ca ne fonctionne pas : client mineur
+		xavier.retourVoiture(200, monClient3);  // ca ne fonctionne pas :
 
 		xavier.afficheToi();
 	}
