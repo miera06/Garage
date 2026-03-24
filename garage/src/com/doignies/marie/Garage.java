@@ -10,10 +10,10 @@ public class Garage {
 	// /////////////////
 	// *** Variables ***
 	// /////////////////
-	private String garageName;
-	private List<Voiture> voitures = new ArrayList<Voiture>();       // Liste vide obligatoire et non pas null (n'existe pas) car sinon la fonction addVoiture() ne peut pas fonctionner. On ne peut pas ajouter dans une liste qui n'existe pas
-	private List<Client> clients = new ArrayList<Client>();          // Liste vide obligatoire et non pas null (n'existe pas) car sinon la fonction addClient() ne peut pas fonctionner. On ne peut pas ajouter dans une liste qui n'existe pas
-	private List<Location> locations = new ArrayList<Location>();    // Liste vide obligatoire et non pas null (n'existe pas) car sinon la fonction locationVoiture() ne peut pas fonctionner. On ne peut pas ajouter dans une liste qui n'existe pas
+	private final String garageName;
+	private final List<Voiture> voitures = new ArrayList<Voiture>();       // Liste vide obligatoire et non pas null (n'existe pas) car sinon la fonction addVoiture() ne peut pas fonctionner. On ne peut pas ajouter dans une liste qui n'existe pas
+	private final List<Client> clients = new ArrayList<Client>();          // Liste vide obligatoire et non pas null (n'existe pas) car sinon la fonction addClient() ne peut pas fonctionner. On ne peut pas ajouter dans une liste qui n'existe pas
+	private final List<Location> locations = new ArrayList<Location>();    // Liste vide obligatoire et non pas null (n'existe pas) car sinon la fonction locationVoiture() ne peut pas fonctionner. On ne peut pas ajouter dans une liste qui n'existe pas
 
 	// /////////////////////
 	// *** Constructeurs ***

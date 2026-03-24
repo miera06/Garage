@@ -10,11 +10,11 @@ public class Location {
 	// /////////////////
 	// *** Variables ***
 	// /////////////////
-	private Client client;
-	private Voiture voiture;
-	private LocalDate dateDebut = LocalDate.now();    // valeur lors de la creation
-	private LocalDate dateFin = null;                 // valeur lors de la creation
-	private int kmDepart;
+	private final Client client;
+	private final Voiture voiture;
+	private final LocalDate dateDebut = LocalDate.now();   // valeur lors de la creation
+	private LocalDate dateFin = null;                      // valeur lors de la creation
+	private final int kmDepart;
 
 	// /////////////////////
 	// *** Constructeurs ***

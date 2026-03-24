@@ -9,10 +9,10 @@ public class Voiture {
 	// /////////////////
 	// TODO : ETAPE 5
 	// TODO : Ajouter une private String plaqueImmatriculation
-	private String marque;
-	private String model;
+	private final String marque;
+	private final String model;
 	private String color;
-	private int tarifParJour;
+	private final int tarifParJour;
 	private int nbKm = 0;         // valeur lors de la creation
 
 	// /////////////////////
@@ -52,10 +52,6 @@ public class Voiture {
 	// ///////////////
 	public String getMarque() {
 		return this.marque;
-	}
-
-	public String getModel() {
-		return this.model;
 	}
 
 	public String getColor() {

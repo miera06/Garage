@@ -10,11 +10,11 @@ public class Client {
 	// /////////////////
 	// *** Variables ***
 	// /////////////////
-	private String name;
-	private String surname;
-	private int age;
-	private int nbEmprunt = 0;                             // valeur lors de la creation
-	private List<Facture> factures = new ArrayList<Facture>();  // Liste vide obligatoire et non pas null (n'existe pas) car sinon la fonction addFacture() ne peut pas fonctionner. On ne peut pas ajouter dans une liste qui n'existe pas
+	private final String name;
+	private final String surname;
+	private final int age;
+	private int nbEmprunt = 0;                                 // valeur lors de la creation
+	private final List<Facture> factures = new ArrayList<Facture>(); // Liste vide obligatoire et non pas null (n'existe pas) car sinon la fonction addFacture() ne peut pas fonctionner. On ne peut pas ajouter dans une liste qui n'existe pas
 
 	// /////////////////////
 	// *** Constructeurs ***
