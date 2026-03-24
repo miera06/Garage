@@ -1,7 +1,7 @@
 
 package com.doignies.marie;
 
-import com.doignies.marie.utils.Erreur;
+import com.doignies.marie.utils.Console;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -44,7 +44,7 @@ public class Location {
 
 	public Facture terminerLocation(final int kmRetour) {
 		if (this.estTerminee()) {
-			Erreur.a("Location déjà terminée");
+			Console.error("Location déjà terminée");
 			return null;
 		}
 

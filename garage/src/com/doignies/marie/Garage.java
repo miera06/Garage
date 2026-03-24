@@ -1,8 +1,7 @@
 
 package com.doignies.marie;
 
-import com.doignies.marie.utils.Affiche;
-import com.doignies.marie.utils.Erreur;
+import com.doignies.marie.utils.Console;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,36 +33,36 @@ public class Garage {
 	// *** PUBLIC ***
 
 	public void afficheToi() {
-		Affiche.a("*****");
+		Console.info("*****");
 
-		Affiche.a("Garage : " + this.garageName);
+		Console.info("Garage : " + this.garageName);
 
-		Affiche.a("*****");
+		Console.info("*****");
 
-		Affiche.a("Voitures : ");
+		Console.info("Voitures : ");
 		for (Voiture maVoiture : this.voitures) {
 			maVoiture.afficheToi();
 
 			if (this.estCeQueLaVoitureestLouee(maVoiture)) {
-				Affiche.a("\t\tEn location");
+				Console.info("\t\tEn location");
 			} else {
-				Affiche.a("\t\tLibre");
+				Console.info("\t\tLibre");
 			}
 		}
 
-		Affiche.a("*****");
+		Console.info("*****");
 
-		Affiche.a("Clients : ");
+		Console.info("Clients : ");
 		for (Client monClient : clients) {
 			monClient.afficheToi();
 		}
 	}
 
 	public void afficheFacturesDuGarage() {
-		Affiche.a("Factures du Garage : " + this.garageName);
+		Console.info("Factures du Garage : " + this.garageName);
 		for (Client monClient : this.clients) {
 			if (!monClient.getFactures().isEmpty()) { // if (monClient.getFactures().size() > 0) {
-				Affiche.a("\t\t*");
+				Console.info("\t\t*");
 
 				for (Facture maFacture : monClient.getFactures()) {
 					maFacture.afficheToi();
@@ -115,10 +114,10 @@ public class Garage {
 
 	public void retourVoiture(int kmDeLaVoitureAuRetour, Client clientLoueur) {
 		if (clientLoueur == null) {
-			Erreur.a("clientLoueur ne peut pas etre null");
+			Console.error("clientLoueur ne peut pas etre null");
 		} else {
 			if (kmDeLaVoitureAuRetour <= 0) {
-				Erreur.a("kmDeLaVoitureAuRetour ne peut pas etre 0 ou negatif");
+				Console.error("kmDeLaVoitureAuRetour ne peut pas etre 0 ou negatif");
 			} else {
 				boolean jaiTrouverLaLocation = false;
 
@@ -130,13 +129,13 @@ public class Garage {
 							Facture nouvelleFacture = maLocation.terminerLocation(kmDeLaVoitureAuRetour);
 							clientLoueur.addFacture(nouvelleFacture);
 						} else {
-							Erreur.a("km retour < km arrivé");
+							Console.error("km retour < km arrivé");
 						}
 					}
 				}
 
 				if (!jaiTrouverLaLocation) {
-					Erreur.a("client sans location ou toutes ses locations sont deja finies");
+					Console.error("client sans location ou toutes ses locations sont deja finies");
 				}
 			}
 		}
@@ -156,12 +155,12 @@ public class Garage {
 
 		if (couleurATester == null) {
 			// TODO : Faire une Exception
-			Erreur.a("La couleur n'existe pas");
+			Console.error("La couleur n'existe pas");
 		} else {
 			for (Voiture maVoiture : this.voitures) {
 				// if (maVoiture.getColor(). == couleurATester) { // Mauvaise maniere de comparer deux CLASSES car String est une classe
 				if (couleurATester.equals(maVoiture.getColor())) { // On est sure et certain que couleurATester n'est pas null
-					compteurDeVoiture ++; // compteurDeVoiture = compteurDeVoiture + 1    OU   compteurDeVoiture += 1
+					compteurDeVoiture++; // compteurDeVoiture = compteurDeVoiture + 1    OU   compteurDeVoiture += 1
 				}
 			}
 		}
@@ -201,22 +200,22 @@ public class Garage {
 
 	private boolean locationPossible(final Client clientLoueur, final Voiture voitureLouee) {
 		if (!this.clients.contains(clientLoueur)) { // si clientLoueur n'est pas dans le garage alors erreur et return false
-			Erreur.a("le client n'est pas dans le garage");
+			Console.error("le client n'est pas dans le garage");
 			return false;
 		}
 
 		if (!this.voitures.contains(voitureLouee)) {// si voitureLouee n'est pas dans le garage alors erreur et return false
-			Erreur.a("la voiture n'est pas dans le garage");
+			Console.error("la voiture n'est pas dans le garage");
 			return false;
 		}
 
 		if (!clientLoueur.peutEmpunter()) {
-			Erreur.a(clientLoueur.getName() + " ne peut pas emprunter");
+			Console.error(clientLoueur.getName() + " ne peut pas emprunter");
 			return false;
 		}
 
 		if (this.estCeQueLaVoitureestLouee(voitureLouee)) {
-			Erreur.a("voiture déjà louée");
+			Console.error("voiture déjà louée");
 			return false;
 		}
 

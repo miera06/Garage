@@ -1,7 +1,7 @@
 
 package com.doignies.marie;
 
-import com.doignies.marie.utils.Affiche;
+import com.doignies.marie.utils.Console;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,13 +36,13 @@ public class Client {
 	// *** PUBLIC ***
 
 	public void afficheToi() {
-		Affiche.a("\tClient : " + this.name + " " + this.surname + " (" + this.age + " ans)");
+		Console.info("\tClient : " + this.name + " " + this.surname + " (" + this.age + " ans)");
 
 		if (!this.factures.isEmpty()) { // if(factures.size() > 0) { // Protection pour ne pas afficher si il n'y a pas de factures
-			Affiche.a("\t\tFactures : ");
+			Console.info("\t\tFactures : ");
 
 			for (Facture maFacture : this.factures) {
-				Affiche.a("\t\t*");
+				Console.info("\t\t*");
 				maFacture.afficheToi();
 			}
 		}

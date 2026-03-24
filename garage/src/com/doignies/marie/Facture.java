@@ -1,7 +1,7 @@
 
 package com.doignies.marie;
 
-import com.doignies.marie.utils.Affiche;
+import com.doignies.marie.utils.Console;
 
 import java.time.LocalDate;
 
@@ -28,10 +28,10 @@ public class Facture {
 	// *** Fonctions ***
 	// /////////////////
 	public void afficheToi(){
-		Affiche.a("\t\t\t Client : " + this.client.getName());
-		Affiche.a("\t\t\t Voiture : " + this.voiture.getMarque());
-		Affiche.a("\t\t\t Date : " + this.date);
-		Affiche.a("\t\t\t Prix: " + this.prixLocation);
+		Console.info("\t\t\t Client : " + this.client.getName());
+		Console.info("\t\t\t Voiture : " + this.voiture.getMarque());
+		Console.info("\t\t\t Date : " + this.date);
+		Console.info("\t\t\t Prix: " + this.prixLocation);
 	}
 
 	// ///////////////

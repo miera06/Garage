@@ -1,7 +1,7 @@
 
 package com.doignies.marie;
 
-import com.doignies.marie.utils.Affiche;
+import com.doignies.marie.utils.Console;
 
 public class Voiture {
 	// /////////////////
@@ -36,7 +36,7 @@ public class Voiture {
 	// *** Fonctions ***
 	// /////////////////
 	public void afficheToi() {
-		Affiche.a("\tVoiture : " + this.model + " " + this.marque + " (" + this.tarifParJour + " €/j) (" + this.nbKm + " km)");
+		Console.info("\tVoiture : " + this.model + " " + this.marque + " (" + this.tarifParJour + " €/j) (" + this.nbKm + " km)");
 	}
 
 	public void ajouteKm (final int combienJaiRoule){
