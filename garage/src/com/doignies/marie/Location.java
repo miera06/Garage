@@ -48,7 +48,7 @@ public class Location {
 			return null;
 		}
 
-		// Ajouter 2 jours uniquementpour les tests
+		// Ajouter 2 jours uniquement pour les tests
 		// dateFin = LocalDate.now();
 		LocalDate datePlus2 = LocalDate.now().plusDays(2);
 		this.dateFin = datePlus2;
