@@ -1,4 +1,7 @@
+
 package com.doignies.marie;
+
+import com.doignies.marie.utils.Affiche;
 
 import java.time.LocalDate;
 
@@ -14,14 +17,21 @@ public class Facture {
 	// /////////////////////
 	// *** Constructeurs ***
 	// /////////////////////
-	public Facture(final Client newClient, final Voiture newVoiture, final long newPrixLocation, LocalDate newDate) {
-		// On ne met pas newDate
-		// dans la liste des parametres car lors de la Création d'une facture
-		// 1. On met la date du jour à l'instant T
+	public Facture(final Client newClient, final Voiture newVoiture, final long newPrixLocation, final LocalDate newDate) {
 		this.client = newClient;
 		this.voiture = newVoiture;
 		this.date = newDate;
 		this.prixLocation = newPrixLocation;
+	}
+
+	// /////////////////
+	// *** Fonctions ***
+	// /////////////////
+	public void afficheToi(){
+		Affiche.a("\t\t\t Client : " + this.client.getName());
+		Affiche.a("\t\t\t Voiture : " + this.voiture.getMarque());
+		Affiche.a("\t\t\t Date : " + this.date);
+		Affiche.a("\t\t\t Prix: " + this.prixLocation);
 	}
 
 	// ///////////////
@@ -31,14 +41,4 @@ public class Facture {
 	// ///////////////
 	// *** Setters ***
 	// ///////////////
-
-	// /////////////////
-	// *** Fonctions ***
-	// /////////////////
-	public void afficheToi(){
-		System.out.println ("\t\t\t Client : " + this.client.getName());
-		System.out.println ("\t\t\t Voiture : " + this.voiture.getMarque());
-		System.out.println ("\t\t\t Date : " + this.date);
-		System.out.println ("\t\t\t Prix: " + this.prixLocation);
-	}
 }

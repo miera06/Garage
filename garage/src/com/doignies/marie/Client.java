@@ -39,10 +39,10 @@ public class Client {
 		Affiche.a("\tClient : " + this.name + " " + this.surname + " (" + this.age + " )");
 
 		if (!this.factures.isEmpty()) { // if(factures.size() > 0) { // Protection pour ne pas afficher si il n'y a pas de factures
-			Affiche.a("\tFactures : ");
+			Affiche.a("\t\tFactures : ");
 
 			for (Facture maFacture : this.factures) {
-				Affiche.a("*");
+				Affiche.a("\t\t*");
 				maFacture.afficheToi();
 			}
 		}
