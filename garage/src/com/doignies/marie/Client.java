@@ -13,7 +13,7 @@ public class Client {
 	private String name;
 	private String surname;
 	private int age;
-	private int nbEmprunt = 0;
+	private int nbEmprunt = 0;                             // valeur lors de la creation
 	private List<Facture> factures = new ArrayList<Facture>();  // Liste vide obligatoire et non pas null (n'existe pas) car sinon la fonction addFacture() ne peut pas fonctionner. On ne peut pas ajouter dans une liste qui n'existe pas
 
 	// /////////////////////
@@ -32,6 +32,9 @@ public class Client {
 	// /////////////////
 	// *** Fonctions ***
 	// /////////////////
+
+	// *** PUBLIC ***
+
 	public void afficheToi() {
 		Affiche.a("\tClient : " + this.name + " " + this.surname + " (" + this.age + " )");
 
@@ -45,23 +48,25 @@ public class Client {
 		}
 	}
 
-	public void addNbEmprunt (){
+	public void addNbEmprunt(){
 		this.nbEmprunt ++; // this.nbEmprunt += 1;   OU   this.nbEmprunt = this.nbEmprunt + 1;
 	}
 
-	public void addFacture(Facture nouvelleFacture) {
+	public void addFacture(final Facture nouvelleFacture) {
 		this.factures.add(nouvelleFacture);
 	}
 
-	public boolean peutEmpunter () {
-		// return this.age >= 18;
-
+	public boolean peutEmpunter() {
 		if (this.age >= 18) {
 			return true;
 		} else {
 			return false;
 		}
+
+		// return this.age >= 18;
 	}
+
+	// *** PRIVATE ***
 
 	// ///////////////
 	// *** Getters ***
