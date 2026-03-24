@@ -107,11 +107,11 @@ public class Main {
 
 		// Ajout des Clients dans les Garages
 		marie.addClient(monClient1);
-		xavier.addClient(monClient2, monClient3);
+		xavier.addClients(monClient2, monClient3);
 
 		// Ajout des Voitures dans les Garages
 		marie.addVoiture(maVoiture1);
-		xavier.addVoiture(maVoiture2, maVoiture3); // Tu as demandé si c'est possible : c'est possible d'ajouté plusieurs voiture d'un coup
+		xavier.addVoitures(maVoiture2, maVoiture3); // Tu as demandé si c'est possible : c'est possible d'ajouté plusieurs voiture d'un coup
 
 
 		xavier.locationVoiture(monClient1, maVoiture1); // ca ne fonctionne pas : monClient1, maVoiture1 pas dans xavier
@@ -128,5 +128,6 @@ public class Main {
 		xavier.retourVoiture(200, monClient3);  // ca ne fonctionne pas :
 
 		xavier.afficheToi();
+		xavier.afficheFacturesDuGarage();
 	}
 }
