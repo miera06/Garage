@@ -10,7 +10,7 @@ public class Garage {
 	// /////////////////
 	// *** Variables ***
 	// /////////////////
-	private final String garageName;
+	private final String garageName; // pourquoi ne pas initialiser directement la variable avec new name? comme pour les listes?
 	private final List<Voiture> voitures = new ArrayList<Voiture>();       // Liste vide obligatoire et non pas null (n'existe pas) car sinon la fonction addVoiture() ne peut pas fonctionner. On ne peut pas ajouter dans une liste qui n'existe pas
 	private final List<Client> clients = new ArrayList<Client>();          // Liste vide obligatoire et non pas null (n'existe pas) car sinon la fonction addClient() ne peut pas fonctionner. On ne peut pas ajouter dans une liste qui n'existe pas
 	private final List<Location> locations = new ArrayList<Location>();    // Liste vide obligatoire et non pas null (n'existe pas) car sinon la fonction locationVoiture() ne peut pas fonctionner. On ne peut pas ajouter dans une liste qui n'existe pas
